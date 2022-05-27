@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById('tags').innerHTML = document.getElementById('tags').innerHTML.slice(0, -1);
+    });
+</script>
+<h2>{% block title %} {{ post['title'] }} {% endblock %}</h2>
+<span class="badge badge-primary">{{ post['created'] }}</span>
+<p>{{ post['content'] }}</p>
+<hr>
+<p id="tags">Tags:{% for tag in tags %}#{{tag}},{% endfor %}</p>
+{% endblock %}
